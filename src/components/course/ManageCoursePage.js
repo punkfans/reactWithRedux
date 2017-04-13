@@ -30,7 +30,7 @@ ManageCoursePage.propTypes = {
 };
 
 function mapStateToProps (state, ownProps) {
-	let course = {id: '', watchHref: '', authorId: '', length: '', category: ''};
+	let course = {id: '', watchHref: '', authorId: '', length: '', category: '', title: ''};
 	const authorsFormatted = state.authors.map(author => {
 		return {
 			value: author.id,

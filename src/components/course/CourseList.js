@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import CourseListRow from './CourseListRow';
+import CourseListRow from './courseListRow';
 
 const CourseList = ({courses}) => {
 	return (
@@ -17,7 +17,7 @@ const CourseList = ({courses}) => {
 				{courses.map(course => <CourseListRow key={course.id} course={course}/>)}
 			</tbody>
 		</table>
-	)
+	);
 };
 
 CourseList.proptypes = {
