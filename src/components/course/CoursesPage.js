@@ -17,10 +17,6 @@ class CoursesPage extends React.Component {
 		this.setState({course: course});
 	}
 
-	courseRow(course, index) {
-		return <div key={index}>{course.title}</div>;
-	}
-
 	render() {
 		const {courses} = this.props;
 		return (
