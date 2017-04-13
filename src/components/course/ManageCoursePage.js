@@ -11,7 +11,7 @@ class ManageCoursePage extends React.Component {
 		this.state = {
 			course: Object.assign({}, props.course),
 			errors: {}
-		}
+		};
 	}
 
 	render() {
@@ -35,18 +35,18 @@ function mapStateToProps (state, ownProps) {
 		return {
 			value: author.id,
 			text: author.firstName + ' ' + author.lastName
-		}
+		};
 	});
 	return {
 		course: course,
 		authors: authorsFormatted
-	}
+	};
 }
 
 function mapDispatchToProps (dispatch) {
 	return {
 		actions: bindActionCreators(courseActions, dispatch)
-	}
+	};
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ManageCoursePage);

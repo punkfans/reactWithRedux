@@ -18,7 +18,7 @@ class CoursesPage extends React.Component {
 	}
 
 	courseRow(course, index) {
-		return <div key={index}>{course.title}</div>
+		return <div key={index}>{course.title}</div>;
 	}
 
 	render() {
@@ -35,13 +35,13 @@ class CoursesPage extends React.Component {
 function mapStateToProps(state, ownprops) {
 	return {
 		courses: state.courses
-	}
+	};
 }
 
 function mapDispatchToProps(dispatch) {
 	return {
 		actions: bindActionCreators(courseActions, dispatch)
-	}
+	};
 }
 
 CoursesPage.propTypes = {
