@@ -11,6 +11,7 @@ const CourseForm = ({course, allAuthors, onSave, onChange, saving, errors}) => {
 		label="Title"
 		value={course.title}
 		onChange={onChange}
+		placeholder=""
 		error={errors.title}/>
 
 		<SelectInput
@@ -27,6 +28,7 @@ const CourseForm = ({course, allAuthors, onSave, onChange, saving, errors}) => {
 		label="Category"
 		value={course.category}
 		onChange={onChange}
+		placeholder=""
 		error={errors.category}/>
 
 		<TextInput
@@ -34,6 +36,7 @@ const CourseForm = ({course, allAuthors, onSave, onChange, saving, errors}) => {
 		label="Length"
 		value={course.length}
 		onChange={onChange}
+		placeholder=""
 		error={errors.length}/>
 
 		<input
