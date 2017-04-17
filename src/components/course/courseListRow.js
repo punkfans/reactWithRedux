@@ -3,11 +3,15 @@ import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as courseActions from '../../actions/courseActions';
+import toastr from 'toastr';
 
 const CourseListRow = ({course, actions}) => {
 
 	function deleteCourse() {
-		actions.deleteCourse(course.id);
+		actions.deleteCourse(course.id)
+		.then(() => {
+			toastr.success('Course Deleted');
+		});
 	}
 
 	return (
