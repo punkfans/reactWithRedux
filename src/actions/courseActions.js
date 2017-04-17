@@ -23,11 +23,31 @@ export function createCourseSuccess(course) {
 	};
 }
 
+export function deleteCourseSuccess(courses) {
+	return {
+		type: types.DELETE_COURSE_SUCCESS,
+		courses: courses
+	};
+}
+
 export function loadCourses() {
 	return dispatch => {
 		dispatch(beginAjaxCall());
 		return courseApi.getAllCourses().then(courses => {
 			dispatch(loadCoursesSuccess(courses));
+		})
+		.catch(error => {
+			throw(error);
+		});
+	};
+}
+
+export function deleteCourse(courseId) {
+	return dispatch => {
+		return courseApi.deleteCourse(courseId)
+		.then(courses => {
+			console.log(courses);
+			dispatch(deleteCourseSuccess(courses))
 		})
 		.catch(error => {
 			throw(error);

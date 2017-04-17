@@ -1,10 +1,19 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as courseActions from '../../actions/courseActions';
 
-const CourseListRow = ({course}) => {
+const CourseListRow = ({course, actions}) => {
+
+	function deleteCourse() {
+		actions.deleteCourse(course.id);
+	}
+
 	return (
 		<tr>
 			<td><a href={course.watchHref} target="_blank">Watch</a></td>
+			<th><a onClick={deleteCourse} style={{cursor: 'pointer', color: 'red'}}>Delete</a></th>
 			<td><Link to={'/course/' + course.id}>{course.title}</Link></td>
 			<td>{course.authorId}</td>
 			<td>{course.category}</td>
@@ -14,7 +23,20 @@ const CourseListRow = ({course}) => {
 };
 
 CourseListRow.propTypes = {
-	course: PropTypes.object.isRequired
+	course: PropTypes.object.isRequired,
+	actions: PropTypes.object.isRequired
 };
 
-export default CourseListRow;
+function mapStateToProps(state) {
+	return {
+		courses: state.courses
+	};
+}
+
+function mapDispatchToProps(dispatch) {
+	return {
+		actions: bindActionCreators(courseActions, dispatch)
+	};
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CourseListRow);
