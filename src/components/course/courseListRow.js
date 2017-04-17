@@ -31,16 +31,10 @@ CourseListRow.propTypes = {
 	actions: PropTypes.object.isRequired
 };
 
-function mapStateToProps(state) {
-	return {
-		courses: state.courses
-	};
-}
-
 function mapDispatchToProps(dispatch) {
 	return {
 		actions: bindActionCreators(courseActions, dispatch)
 	};
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CourseListRow);
+export default connect(null, mapDispatchToProps)(CourseListRow);
