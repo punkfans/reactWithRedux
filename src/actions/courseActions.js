@@ -46,8 +46,7 @@ export function deleteCourse(courseId) {
 	return dispatch => {
 		return courseApi.deleteCourse(courseId)
 		.then(courses => {
-			console.log(courses);
-			dispatch(deleteCourseSuccess(courses))
+			dispatch(deleteCourseSuccess(courses));
 		})
 		.catch(error => {
 			throw(error);
