@@ -15,7 +15,7 @@ function setup(loading) {
 	return shallow(<CourseForm {...props}/>);
 }
 
-describe('courForm test', () => {
+describe('courseForm test', () => {
 
 	describe('initial display', () => {
 
