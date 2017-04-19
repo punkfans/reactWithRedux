@@ -32,8 +32,28 @@ export class ManageCoursePage extends React.Component {
 		return this.setState({course: course});
 	}
 
+	isFormValid() {
+		let valid = true;
+		let errors = {
+			title: 'You must type in at least 5 characters'
+		};
+
+		if(this.state.course.title.length < 5) {
+			this.setState({errors: errors});
+			valid = false;
+		}else {
+			this.setState({errors: {}});
+		}
+
+		return valid;
+	}
+
 	saveCourse(event) {
 		event.preventDefault();
+		if(!this.isFormValid()) {
+			return;
+		}
+
 		this.setState({loading: true});
 		this.props.actions.saveCourse(this.state.course)
 		.then(() => {
